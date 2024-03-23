@@ -25,16 +25,29 @@ import Token from '../abis/Token.json'
 import Exchange from '../abis/Exchange.json'
 import { ETHER_ADDRESS } from './helpers'
 
+
 export const loadWeb3 = async (dispatch) => {
-  if(typeof window.ethereum!=='undefined'){
-    const web3 = new Web3(window.ethereum)
-    dispatch(web3Loaded(web3))
-    return web3
+  if (window.ethereum) {
+    window.web3 = new Web3(window.ethereum);
+    try {
+      await window.ethereum.enable();
+      // Dispatch web3Loaded action here with the web3 instance
+      dispatch(web3Loaded(window.web3));
+      return window.web3;
+    } catch (error) {
+      console.error("User denied account access...");
+    }
+  } else if (window.web3) {
+    window.web3 = new Web3(window.web3.currentProvider);
+    // Dispatch web3Loaded action here too, if applicable
+    dispatch(web3Loaded(window.web3));
+    return window.web3;
   } else {
-    window.alert('Please install MetaMask')
-    window.location.assign("https://metamask.io/")
+    console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
   }
-}
+};
+
+
 
 export const loadAccount = async (web3, dispatch) => {
   const accounts = await web3.eth.getAccounts()
