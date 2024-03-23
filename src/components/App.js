@@ -17,6 +17,8 @@ from '../store/interactions';
 
 
 
+  
+
 
 class App extends Component {
   componentWillMount() {
@@ -30,7 +32,7 @@ class App extends Component {
     await loadAccount(web3, dispatch)
     const token = await loadToken(web3, networkId, dispatch)
     if (!token) {
-      window.alert('Token smart contract not dected on the current network. Please select another netework with Metamask')
+      window.alert('Token smart contract not dected on the current network. Please select another network with Metamask')
       return
     }
     const exchange = await loadExchange(web3, networkId, dispatch)
@@ -39,6 +41,8 @@ class App extends Component {
       return
     }
   }
+ 
+  
 
   render() {
     
