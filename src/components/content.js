@@ -28,16 +28,16 @@ class Content extends Component {
       <div className="content">
         <div className="vertical-split">
          <Balance />
-          <NewOrder />
+          {/* <NewOrder /> */}
         </div>
-        <OrderBook />
+        {/* <OrderBook />
         <div className="vertical-split">
           <PriceChart />
           <MyTransactions />
         </div>
         <div className='vertical'>
           <Trades />
-        </div>
+        </div> */}
 
       </div>
     )
