@@ -99,7 +99,7 @@ const showForm = (props) => {
           event.preventDefault()
           depositToken(dispatch, exchange, web3, token, tokenDepositAmount, account)
         }}>
-          <div className="col-12 col-sm pr-sm-2">
+          {/* <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
             placeholder="Amount"
@@ -109,7 +109,7 @@ const showForm = (props) => {
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
             <button type="submit" className="btn btn-primary btn-block btn-sm">Deposit</button>
-          </div>
+          </div> */}
         </form>
 
       </Tab>
@@ -164,7 +164,7 @@ const showForm = (props) => {
           event.preventDefault()
           withdrawToken(dispatch, exchange, web3, token, tokenWithdrawAmount, account)
         }}>
-          <div className="col-12 col-sm pr-sm-2">
+          {/* <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
             placeholder="Amount"
@@ -174,7 +174,7 @@ const showForm = (props) => {
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
             <button type="submit" className="btn btn-primary btn-block btn-sm">Withdraw</button>
-          </div>
+          </div> */}
         </form>
 
       </Tab>
